@@ -8,8 +8,11 @@ import com.liferay.portal.kernel.messaging.Message;
 import com.liferay.portal.kernel.messaging.MessageListener;
 import com.liferay.portal.kernel.messaging.MessageListenerException;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.ResourceBundle;
 
 public class EmailNotificationListener implements MessageListener {
 
@@ -38,6 +41,16 @@ public class EmailNotificationListener implements MessageListener {
 		}
 		EmailSender residenceExpirySender = new ResidenceExpireDateEmailSender();
 		residenceExpirySender.sendEmailMessage();
+		
+		try{
+			Thread.sleep(2000);
+		}
+		catch (InterruptedException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		
+		
 	}
 
 }

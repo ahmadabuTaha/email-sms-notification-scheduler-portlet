@@ -31,8 +31,13 @@
 		<aui:input name="templateSubject" />
 
 		<aui:input name="templateSender" />
-
-		<aui:input name="templateBody" />
+		<style>
+		  .textareabody{
+		  	height: 70px;
+		  	width: 100%;
+		  }
+		</style>
+		<aui:input name="templateBody" type="textarea" inputCssClass="textareabody"/>
 
 	</aui:fieldset>
 

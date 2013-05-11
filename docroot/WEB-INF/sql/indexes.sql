@@ -1,0 +1,1 @@
+create index IX_2126D10B on EmailTemplates_ScheduleEntity (templateId);

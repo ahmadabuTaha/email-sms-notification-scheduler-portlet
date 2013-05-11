@@ -14,33 +14,33 @@
 
 package com.liferay.inspire.template.service.base;
 
-import com.liferay.inspire.template.service.EmailTemplateEntityLocalServiceUtil;
+import com.liferay.inspire.template.service.ScheduleEntityLocalServiceUtil;
 
 import java.util.Arrays;
 
 /**
  * @author Brian Wing Shun Chan
  */
-public class EmailTemplateEntityLocalServiceClpInvoker {
-	public EmailTemplateEntityLocalServiceClpInvoker() {
-		_methodName0 = "addEmailTemplateEntity";
+public class ScheduleEntityLocalServiceClpInvoker {
+	public ScheduleEntityLocalServiceClpInvoker() {
+		_methodName0 = "addScheduleEntity";
 
 		_methodParameterTypes0 = new String[] {
-				"com.liferay.inspire.template.model.EmailTemplateEntity"
+				"com.liferay.inspire.template.model.ScheduleEntity"
 			};
 
-		_methodName1 = "createEmailTemplateEntity";
+		_methodName1 = "createScheduleEntity";
 
 		_methodParameterTypes1 = new String[] { "long" };
 
-		_methodName2 = "deleteEmailTemplateEntity";
+		_methodName2 = "deleteScheduleEntity";
 
 		_methodParameterTypes2 = new String[] { "long" };
 
-		_methodName3 = "deleteEmailTemplateEntity";
+		_methodName3 = "deleteScheduleEntity";
 
 		_methodParameterTypes3 = new String[] {
-				"com.liferay.inspire.template.model.EmailTemplateEntity"
+				"com.liferay.inspire.template.model.ScheduleEntity"
 			};
 
 		_methodName4 = "dynamicQuery";
@@ -72,11 +72,11 @@ public class EmailTemplateEntityLocalServiceClpInvoker {
 				"com.liferay.portal.kernel.dao.orm.DynamicQuery"
 			};
 
-		_methodName9 = "fetchEmailTemplateEntity";
+		_methodName9 = "fetchScheduleEntity";
 
 		_methodParameterTypes9 = new String[] { "long" };
 
-		_methodName10 = "getEmailTemplateEntity";
+		_methodName10 = "getScheduleEntity";
 
 		_methodParameterTypes10 = new String[] { "long" };
 
@@ -84,25 +84,24 @@ public class EmailTemplateEntityLocalServiceClpInvoker {
 
 		_methodParameterTypes11 = new String[] { "java.io.Serializable" };
 
-		_methodName12 = "getEmailTemplateEntities";
+		_methodName12 = "getScheduleEntities";
 
 		_methodParameterTypes12 = new String[] { "int", "int" };
 
-		_methodName13 = "getEmailTemplateEntitiesCount";
+		_methodName13 = "getScheduleEntitiesCount";
 
 		_methodParameterTypes13 = new String[] {  };
 
-		_methodName14 = "updateEmailTemplateEntity";
+		_methodName14 = "updateScheduleEntity";
 
 		_methodParameterTypes14 = new String[] {
-				"com.liferay.inspire.template.model.EmailTemplateEntity"
+				"com.liferay.inspire.template.model.ScheduleEntity"
 			};
 
-		_methodName15 = "updateEmailTemplateEntity";
+		_methodName15 = "updateScheduleEntity";
 
 		_methodParameterTypes15 = new String[] {
-				"com.liferay.inspire.template.model.EmailTemplateEntity",
-				"boolean"
+				"com.liferay.inspire.template.model.ScheduleEntity", "boolean"
 			};
 
 		_methodName40 = "getBeanIdentifier";
@@ -118,44 +117,44 @@ public class EmailTemplateEntityLocalServiceClpInvoker {
 		Object[] arguments) throws Throwable {
 		if (_methodName0.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes0, parameterTypes)) {
-			return EmailTemplateEntityLocalServiceUtil.addEmailTemplateEntity((com.liferay.inspire.template.model.EmailTemplateEntity)arguments[0]);
+			return ScheduleEntityLocalServiceUtil.addScheduleEntity((com.liferay.inspire.template.model.ScheduleEntity)arguments[0]);
 		}
 
 		if (_methodName1.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes1, parameterTypes)) {
-			return EmailTemplateEntityLocalServiceUtil.createEmailTemplateEntity(((Long)arguments[0]).longValue());
+			return ScheduleEntityLocalServiceUtil.createScheduleEntity(((Long)arguments[0]).longValue());
 		}
 
 		if (_methodName2.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes2, parameterTypes)) {
-			return EmailTemplateEntityLocalServiceUtil.deleteEmailTemplateEntity(((Long)arguments[0]).longValue());
+			return ScheduleEntityLocalServiceUtil.deleteScheduleEntity(((Long)arguments[0]).longValue());
 		}
 
 		if (_methodName3.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes3, parameterTypes)) {
-			return EmailTemplateEntityLocalServiceUtil.deleteEmailTemplateEntity((com.liferay.inspire.template.model.EmailTemplateEntity)arguments[0]);
+			return ScheduleEntityLocalServiceUtil.deleteScheduleEntity((com.liferay.inspire.template.model.ScheduleEntity)arguments[0]);
 		}
 
 		if (_methodName4.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes4, parameterTypes)) {
-			return EmailTemplateEntityLocalServiceUtil.dynamicQuery();
+			return ScheduleEntityLocalServiceUtil.dynamicQuery();
 		}
 
 		if (_methodName5.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes5, parameterTypes)) {
-			return EmailTemplateEntityLocalServiceUtil.dynamicQuery((com.liferay.portal.kernel.dao.orm.DynamicQuery)arguments[0]);
+			return ScheduleEntityLocalServiceUtil.dynamicQuery((com.liferay.portal.kernel.dao.orm.DynamicQuery)arguments[0]);
 		}
 
 		if (_methodName6.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes6, parameterTypes)) {
-			return EmailTemplateEntityLocalServiceUtil.dynamicQuery((com.liferay.portal.kernel.dao.orm.DynamicQuery)arguments[0],
+			return ScheduleEntityLocalServiceUtil.dynamicQuery((com.liferay.portal.kernel.dao.orm.DynamicQuery)arguments[0],
 				((Integer)arguments[1]).intValue(),
 				((Integer)arguments[2]).intValue());
 		}
 
 		if (_methodName7.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes7, parameterTypes)) {
-			return EmailTemplateEntityLocalServiceUtil.dynamicQuery((com.liferay.portal.kernel.dao.orm.DynamicQuery)arguments[0],
+			return ScheduleEntityLocalServiceUtil.dynamicQuery((com.liferay.portal.kernel.dao.orm.DynamicQuery)arguments[0],
 				((Integer)arguments[1]).intValue(),
 				((Integer)arguments[2]).intValue(),
 				(com.liferay.portal.kernel.util.OrderByComparator)arguments[3]);
@@ -163,54 +162,54 @@ public class EmailTemplateEntityLocalServiceClpInvoker {
 
 		if (_methodName8.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes8, parameterTypes)) {
-			return EmailTemplateEntityLocalServiceUtil.dynamicQueryCount((com.liferay.portal.kernel.dao.orm.DynamicQuery)arguments[0]);
+			return ScheduleEntityLocalServiceUtil.dynamicQueryCount((com.liferay.portal.kernel.dao.orm.DynamicQuery)arguments[0]);
 		}
 
 		if (_methodName9.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes9, parameterTypes)) {
-			return EmailTemplateEntityLocalServiceUtil.fetchEmailTemplateEntity(((Long)arguments[0]).longValue());
+			return ScheduleEntityLocalServiceUtil.fetchScheduleEntity(((Long)arguments[0]).longValue());
 		}
 
 		if (_methodName10.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes10, parameterTypes)) {
-			return EmailTemplateEntityLocalServiceUtil.getEmailTemplateEntity(((Long)arguments[0]).longValue());
+			return ScheduleEntityLocalServiceUtil.getScheduleEntity(((Long)arguments[0]).longValue());
 		}
 
 		if (_methodName11.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes11, parameterTypes)) {
-			return EmailTemplateEntityLocalServiceUtil.getPersistedModel((java.io.Serializable)arguments[0]);
+			return ScheduleEntityLocalServiceUtil.getPersistedModel((java.io.Serializable)arguments[0]);
 		}
 
 		if (_methodName12.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes12, parameterTypes)) {
-			return EmailTemplateEntityLocalServiceUtil.getEmailTemplateEntities(((Integer)arguments[0]).intValue(),
+			return ScheduleEntityLocalServiceUtil.getScheduleEntities(((Integer)arguments[0]).intValue(),
 				((Integer)arguments[1]).intValue());
 		}
 
 		if (_methodName13.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes13, parameterTypes)) {
-			return EmailTemplateEntityLocalServiceUtil.getEmailTemplateEntitiesCount();
+			return ScheduleEntityLocalServiceUtil.getScheduleEntitiesCount();
 		}
 
 		if (_methodName14.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes14, parameterTypes)) {
-			return EmailTemplateEntityLocalServiceUtil.updateEmailTemplateEntity((com.liferay.inspire.template.model.EmailTemplateEntity)arguments[0]);
+			return ScheduleEntityLocalServiceUtil.updateScheduleEntity((com.liferay.inspire.template.model.ScheduleEntity)arguments[0]);
 		}
 
 		if (_methodName15.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes15, parameterTypes)) {
-			return EmailTemplateEntityLocalServiceUtil.updateEmailTemplateEntity((com.liferay.inspire.template.model.EmailTemplateEntity)arguments[0],
+			return ScheduleEntityLocalServiceUtil.updateScheduleEntity((com.liferay.inspire.template.model.ScheduleEntity)arguments[0],
 				((Boolean)arguments[1]).booleanValue());
 		}
 
 		if (_methodName40.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes40, parameterTypes)) {
-			return EmailTemplateEntityLocalServiceUtil.getBeanIdentifier();
+			return ScheduleEntityLocalServiceUtil.getBeanIdentifier();
 		}
 
 		if (_methodName41.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes41, parameterTypes)) {
-			EmailTemplateEntityLocalServiceUtil.setBeanIdentifier((java.lang.String)arguments[0]);
+			ScheduleEntityLocalServiceUtil.setBeanIdentifier((java.lang.String)arguments[0]);
 		}
 
 		throw new UnsupportedOperationException();

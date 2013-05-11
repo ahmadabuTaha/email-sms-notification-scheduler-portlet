@@ -22,7 +22,14 @@
 <%@ page import="com.liferay.inspire.template.model.EmailTemplateEntity"%>
 <%@ page import="com.liferay.inspire.template.service.EmailTemplateEntityLocalServiceUtil"%>
 
+<%@ page import="com.liferay.inspire.template.model.ScheduleEntity"%>
+<%@ page import="com.liferay.inspire.template.service.ScheduleEntityLocalServiceUtil"%>
+
 <liferay-theme:defineObjects />
 
 <portlet:defineObjects />
+
+
+
+
 

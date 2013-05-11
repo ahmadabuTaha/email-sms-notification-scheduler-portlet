@@ -16,6 +16,7 @@ package com.liferay.inspire.template.service.messaging;
 
 import com.liferay.inspire.template.service.ClpSerializer;
 import com.liferay.inspire.template.service.EmailTemplateEntityLocalServiceUtil;
+import com.liferay.inspire.template.service.ScheduleEntityLocalServiceUtil;
 
 import com.liferay.portal.kernel.messaging.BaseMessageListener;
 import com.liferay.portal.kernel.messaging.Message;
@@ -36,6 +37,8 @@ public class ClpMessageListener extends BaseMessageListener {
 		if (command.equals("undeploy") &&
 				servletContextName.equals(getServletContextName())) {
 			EmailTemplateEntityLocalServiceUtil.clearService();
+
+			ScheduleEntityLocalServiceUtil.clearService();
 		}
 	}
 }

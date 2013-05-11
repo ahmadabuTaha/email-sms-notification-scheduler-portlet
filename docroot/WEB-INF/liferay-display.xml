@@ -7,5 +7,6 @@
 	</category>
 	<category name="category.inspire">
 		<portlet id="emailtemplatebuilderPortlet"></portlet>
+		<portlet id="schedulemanagerPortlet"></portlet>
 	</category>
 </display>

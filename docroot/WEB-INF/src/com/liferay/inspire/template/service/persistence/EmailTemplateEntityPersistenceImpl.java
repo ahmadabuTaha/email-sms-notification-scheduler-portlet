@@ -613,6 +613,8 @@ public class EmailTemplateEntityPersistenceImpl extends BasePersistenceImpl<Emai
 
 	@BeanReference(type = EmailTemplateEntityPersistence.class)
 	protected EmailTemplateEntityPersistence emailTemplateEntityPersistence;
+	@BeanReference(type = ScheduleEntityPersistence.class)
+	protected ScheduleEntityPersistence scheduleEntityPersistence;
 	@BeanReference(type = ResourcePersistence.class)
 	protected ResourcePersistence resourcePersistence;
 	@BeanReference(type = UserPersistence.class)

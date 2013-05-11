@@ -15,6 +15,7 @@
 package com.liferay.inspire.template.service;
 
 import com.liferay.inspire.template.model.EmailTemplateEntityClp;
+import com.liferay.inspire.template.model.ScheduleEntityClp;
 
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
@@ -106,6 +107,10 @@ public class ClpSerializer {
 			return translateInputEmailTemplateEntity(oldModel);
 		}
 
+		if (oldModelClassName.equals(ScheduleEntityClp.class.getName())) {
+			return translateInputScheduleEntity(oldModel);
+		}
+
 		return oldModel;
 	}
 
@@ -132,6 +137,16 @@ public class ClpSerializer {
 		return newModel;
 	}
 
+	public static Object translateInputScheduleEntity(BaseModel<?> oldModel) {
+		ScheduleEntityClp oldClpModel = (ScheduleEntityClp)oldModel;
+
+		BaseModel<?> newModel = oldClpModel.getScheduleEntityRemoteModel();
+
+		newModel.setModelAttributes(oldClpModel.getModelAttributes());
+
+		return newModel;
+	}
+
 	public static Object translateInput(Object obj) {
 		if (obj instanceof BaseModel<?>) {
 			return translateInput((BaseModel<?>)obj);
@@ -152,6 +167,11 @@ public class ClpSerializer {
 		if (oldModelClassName.equals(
 					"com.liferay.inspire.template.model.impl.EmailTemplateEntityImpl")) {
 			return translateOutputEmailTemplateEntity(oldModel);
+		}
+
+		if (oldModelClassName.equals(
+					"com.liferay.inspire.template.model.impl.ScheduleEntityImpl")) {
+			return translateOutputScheduleEntity(oldModel);
 		}
 
 		return oldModel;
@@ -239,6 +259,11 @@ public class ClpSerializer {
 			return new com.liferay.inspire.template.NoSuchEmailTemplateEntityException();
 		}
 
+		if (className.equals(
+					"com.liferay.inspire.template.NoSuchScheduleEntityException")) {
+			return new com.liferay.inspire.template.NoSuchScheduleEntityException();
+		}
+
 		return throwable;
 	}
 
@@ -249,6 +274,16 @@ public class ClpSerializer {
 		newModel.setModelAttributes(oldModel.getModelAttributes());
 
 		newModel.setEmailTemplateEntityRemoteModel(oldModel);
+
+		return newModel;
+	}
+
+	public static Object translateOutputScheduleEntity(BaseModel<?> oldModel) {
+		ScheduleEntityClp newModel = new ScheduleEntityClp();
+
+		newModel.setModelAttributes(oldModel.getModelAttributes());
+
+		newModel.setScheduleEntityRemoteModel(oldModel);
 
 		return newModel;
 	}
