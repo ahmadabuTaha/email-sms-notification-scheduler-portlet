@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="com.liferay.inspire.template.model.EmailTemplateEntity">
+		<field name="templateId" type="long" />
+		<field name="templateSubject" type="String" />
+		<field name="templateBody" type="String" />
+		<field name="templateSender" type="String" />
+	</model>
+</model-hints>
