@@ -78,8 +78,10 @@ public class ResidenceExpireDateEmailSender extends EmailSenderBaseImpl {
 	@Override
 	public List<User> getReciepentsLogic() {
 
-		String sql = "SELECT u.userId userId, e.data_ data_, e.valueId valueId FROM user_ u, expandovalue e where e.classPK = u.userId and e.columnId = "
-				+ ConfigUtil.LR_CUSTOM_FIELD_RESIDENCE;
+//		String sql = "SELECT u.userId userId, e.data_ data_, e.valueId valueId FROM user_ u, expandovalue e where e.classPK = u.userId and e.columnId = "
+//				+ ConfigUtil.LR_CUSTOM_FIELD_RESIDENCE;
+		
+		String sql = ConfigUtil.LR_CUSTOM_FIELD_RESIDENCE;
 		
 		//System.out.println(sql);
 		//User u = UserLocalServiceUtil.getUser(11).getExpandoBridge().getAttribute("dsfasdfsadf");

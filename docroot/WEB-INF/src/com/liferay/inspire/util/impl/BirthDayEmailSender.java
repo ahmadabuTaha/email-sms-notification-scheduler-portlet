@@ -95,7 +95,7 @@ public class BirthDayEmailSender extends EmailSenderBaseImpl{
 						 "where u.companyId = c.companyId"+"\n"+
 						 "and   u.userId = c.userId"+"\n"+
 						 "and   DATE_FORMAT(c.birthday,'%m-%d') = DATE_FORMAT(CURRENT_DATE, '%m-%d');"+"\n";
-			System.out.println(sql);
+			//System.out.println(sql);
 			Statement stmnt = getConnection().createStatement();
 			ResultSet rSet = stmnt.executeQuery(sql);
 
