@@ -48,7 +48,8 @@ public class HappyBirthdayBuilder implements EmailBuilder{
 		try {
 			fromSender = new InternetAddress(from);
 		} catch (AddressException e) {
-			System.out.println("======= Building Mail Error : Invalid Sender in your Template, or there are mistakes in Control Panel->Portal Settings->Mail configuration");
+			System.out.println("======= Building Mail Error : Invalid Sender in your Template, or there are mistakes in Control Panel->Portal Settings->Mail configuration" +
+					"\n Or Add the Missing Email Templates from Email Templates portlet...");
 			e.printStackTrace();
 		}
 		MailMessage mailMessage = new MailMessage(fromSender, subject, body, true);
@@ -100,28 +101,42 @@ public class HappyBirthdayBuilder implements EmailBuilder{
 	public void buildProperties(long scheduleId) {
 
 		System.out.println("====== Start Building HappyBirthday Mail properties..............");
-		ScheduleEntity sEntity = null;
-		try {
-			sEntity = ScheduleEntityLocalServiceUtil.getScheduleEntity(scheduleId);
-		} catch (PortalException | SystemException e) {
-
-			e.printStackTrace();
-		}
-
+		
+		String template = getBirthdayTemplate();
 		Map<String, String> props = new HashMap<String, String>();
 
-		props.put("id", sEntity.getScheduleId()+"");
-		props.put("name", sEntity.getScheduleName());
-		props.put("key", sEntity.getScheduleType());
-		props.put("value", sEntity.getScheduleFlagValue());
-		props.put("operator", getOpFromSechedule(sEntity.getScheduleOp()));
-		props.put("template", sEntity.getTemplateId()+"");
+		props.put("id", template);
+		props.put("name", "Happy Birthday Scheduler");
+		props.put("key", "com.liferay.inspire.util.impl.HappyBirthday");
+		props.put("value", "");
+		props.put("operator", "=");
+		props.put("template", template);
 		//return props;
 		emailElements.setProperties(props);
 	}
+	
 
 
-
+	private String getBirthdayTemplate() {
+		String sql = "select * from emailTemplates_emailTemplateEntity sch where" +
+				" sch.templateName = 'Happy Birthday' ";
+		String template = "";
+		try {
+			Statement stmnt = EmailBuilderInitializer.getConnection().createStatement();
+			ResultSet rs = stmnt.executeQuery(sql);
+			while(rs.next()){
+				template = rs.getString("templateId");
+				break;
+			}
+			
+		} catch (SQLException e) {
+			System.out.println("====== Check the database connection or add Happy Birthday Template from " +
+					" Email Template screen");
+			e.printStackTrace();
+		}
+		
+		return template;
+	}
 	public EmailElements getEmailElements() {
 
 		return this.emailElements;
