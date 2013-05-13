@@ -33,7 +33,7 @@ public class ScheduleEntityCacheModel implements CacheModel<ScheduleEntity>,
 	Serializable {
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(17);
+		StringBundler sb = new StringBundler(21);
 
 		sb.append("{scheduleId=");
 		sb.append(scheduleId);
@@ -47,6 +47,10 @@ public class ScheduleEntityCacheModel implements CacheModel<ScheduleEntity>,
 		sb.append(scheduleFlagValue);
 		sb.append(", scheduleOp=");
 		sb.append(scheduleOp);
+		sb.append(", schedulePeriod=");
+		sb.append(schedulePeriod);
+		sb.append(", scheduleBeforAfter=");
+		sb.append(scheduleBeforAfter);
 		sb.append(", scheduleActive=");
 		sb.append(scheduleActive);
 		sb.append(", templateId=");
@@ -96,6 +100,8 @@ public class ScheduleEntityCacheModel implements CacheModel<ScheduleEntity>,
 			scheduleEntityImpl.setScheduleOp(scheduleOp);
 		}
 
+		scheduleEntityImpl.setSchedulePeriod(schedulePeriod);
+		scheduleEntityImpl.setScheduleBeforAfter(scheduleBeforAfter);
 		scheduleEntityImpl.setScheduleActive(scheduleActive);
 		scheduleEntityImpl.setTemplateId(templateId);
 
@@ -110,6 +116,8 @@ public class ScheduleEntityCacheModel implements CacheModel<ScheduleEntity>,
 	public String scheduleType;
 	public String scheduleFlagValue;
 	public String scheduleOp;
+	public long schedulePeriod;
+	public long scheduleBeforAfter;
 	public boolean scheduleActive;
 	public long templateId;
 }

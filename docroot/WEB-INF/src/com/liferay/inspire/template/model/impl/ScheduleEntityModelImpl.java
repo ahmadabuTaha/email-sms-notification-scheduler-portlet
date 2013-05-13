@@ -64,10 +64,12 @@ public class ScheduleEntityModelImpl extends BaseModelImpl<ScheduleEntity>
 			{ "scheduleType", Types.VARCHAR },
 			{ "scheduleFlagValue", Types.VARCHAR },
 			{ "scheduleOp", Types.VARCHAR },
+			{ "schedulePeriod", Types.BIGINT },
+			{ "scheduleBeforAfter", Types.BIGINT },
 			{ "scheduleActive", Types.BOOLEAN },
 			{ "templateId", Types.BIGINT }
 		};
-	public static final String TABLE_SQL_CREATE = "create table EmailTemplates_ScheduleEntity (scheduleId LONG not null primary key,scheduleName VARCHAR(75) null,scheduleStore VARCHAR(75) null,scheduleType VARCHAR(75) null,scheduleFlagValue VARCHAR(75) null,scheduleOp VARCHAR(75) null,scheduleActive BOOLEAN,templateId LONG)";
+	public static final String TABLE_SQL_CREATE = "create table EmailTemplates_ScheduleEntity (scheduleId LONG not null primary key,scheduleName VARCHAR(75) null,scheduleStore VARCHAR(75) null,scheduleType VARCHAR(75) null,scheduleFlagValue VARCHAR(75) null,scheduleOp VARCHAR(75) null,schedulePeriod LONG,scheduleBeforAfter LONG,scheduleActive BOOLEAN,templateId LONG)";
 	public static final String TABLE_SQL_DROP = "drop table EmailTemplates_ScheduleEntity";
 	public static final String DATA_SOURCE = "liferayDataSource";
 	public static final String SESSION_FACTORY = "liferaySessionFactory";
@@ -122,6 +124,8 @@ public class ScheduleEntityModelImpl extends BaseModelImpl<ScheduleEntity>
 		attributes.put("scheduleType", getScheduleType());
 		attributes.put("scheduleFlagValue", getScheduleFlagValue());
 		attributes.put("scheduleOp", getScheduleOp());
+		attributes.put("schedulePeriod", getSchedulePeriod());
+		attributes.put("scheduleBeforAfter", getScheduleBeforAfter());
 		attributes.put("scheduleActive", getScheduleActive());
 		attributes.put("templateId", getTemplateId());
 
@@ -164,6 +168,18 @@ public class ScheduleEntityModelImpl extends BaseModelImpl<ScheduleEntity>
 
 		if (scheduleOp != null) {
 			setScheduleOp(scheduleOp);
+		}
+
+		Long schedulePeriod = (Long)attributes.get("schedulePeriod");
+
+		if (schedulePeriod != null) {
+			setSchedulePeriod(schedulePeriod);
+		}
+
+		Long scheduleBeforAfter = (Long)attributes.get("scheduleBeforAfter");
+
+		if (scheduleBeforAfter != null) {
+			setScheduleBeforAfter(scheduleBeforAfter);
 		}
 
 		Boolean scheduleActive = (Boolean)attributes.get("scheduleActive");
@@ -252,6 +268,22 @@ public class ScheduleEntityModelImpl extends BaseModelImpl<ScheduleEntity>
 		_scheduleOp = scheduleOp;
 	}
 
+	public long getSchedulePeriod() {
+		return _schedulePeriod;
+	}
+
+	public void setSchedulePeriod(long schedulePeriod) {
+		_schedulePeriod = schedulePeriod;
+	}
+
+	public long getScheduleBeforAfter() {
+		return _scheduleBeforAfter;
+	}
+
+	public void setScheduleBeforAfter(long scheduleBeforAfter) {
+		_scheduleBeforAfter = scheduleBeforAfter;
+	}
+
 	public boolean getScheduleActive() {
 		return _scheduleActive;
 	}
@@ -322,6 +354,8 @@ public class ScheduleEntityModelImpl extends BaseModelImpl<ScheduleEntity>
 		scheduleEntityImpl.setScheduleType(getScheduleType());
 		scheduleEntityImpl.setScheduleFlagValue(getScheduleFlagValue());
 		scheduleEntityImpl.setScheduleOp(getScheduleOp());
+		scheduleEntityImpl.setSchedulePeriod(getSchedulePeriod());
+		scheduleEntityImpl.setScheduleBeforAfter(getScheduleBeforAfter());
 		scheduleEntityImpl.setScheduleActive(getScheduleActive());
 		scheduleEntityImpl.setTemplateId(getTemplateId());
 
@@ -431,6 +465,10 @@ public class ScheduleEntityModelImpl extends BaseModelImpl<ScheduleEntity>
 			scheduleEntityCacheModel.scheduleOp = null;
 		}
 
+		scheduleEntityCacheModel.schedulePeriod = getSchedulePeriod();
+
+		scheduleEntityCacheModel.scheduleBeforAfter = getScheduleBeforAfter();
+
 		scheduleEntityCacheModel.scheduleActive = getScheduleActive();
 
 		scheduleEntityCacheModel.templateId = getTemplateId();
@@ -440,7 +478,7 @@ public class ScheduleEntityModelImpl extends BaseModelImpl<ScheduleEntity>
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(17);
+		StringBundler sb = new StringBundler(21);
 
 		sb.append("{scheduleId=");
 		sb.append(getScheduleId());
@@ -454,6 +492,10 @@ public class ScheduleEntityModelImpl extends BaseModelImpl<ScheduleEntity>
 		sb.append(getScheduleFlagValue());
 		sb.append(", scheduleOp=");
 		sb.append(getScheduleOp());
+		sb.append(", schedulePeriod=");
+		sb.append(getSchedulePeriod());
+		sb.append(", scheduleBeforAfter=");
+		sb.append(getScheduleBeforAfter());
 		sb.append(", scheduleActive=");
 		sb.append(getScheduleActive());
 		sb.append(", templateId=");
@@ -464,7 +506,7 @@ public class ScheduleEntityModelImpl extends BaseModelImpl<ScheduleEntity>
 	}
 
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(28);
+		StringBundler sb = new StringBundler(34);
 
 		sb.append("<model><model-name>");
 		sb.append("com.liferay.inspire.template.model.ScheduleEntity");
@@ -495,6 +537,14 @@ public class ScheduleEntityModelImpl extends BaseModelImpl<ScheduleEntity>
 		sb.append(getScheduleOp());
 		sb.append("]]></column-value></column>");
 		sb.append(
+			"<column><column-name>schedulePeriod</column-name><column-value><![CDATA[");
+		sb.append(getSchedulePeriod());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>scheduleBeforAfter</column-name><column-value><![CDATA[");
+		sb.append(getScheduleBeforAfter());
+		sb.append("]]></column-value></column>");
+		sb.append(
 			"<column><column-name>scheduleActive</column-name><column-value><![CDATA[");
 		sb.append(getScheduleActive());
 		sb.append("]]></column-value></column>");
@@ -518,6 +568,8 @@ public class ScheduleEntityModelImpl extends BaseModelImpl<ScheduleEntity>
 	private String _scheduleType;
 	private String _scheduleFlagValue;
 	private String _scheduleOp;
+	private long _schedulePeriod;
+	private long _scheduleBeforAfter;
 	private boolean _scheduleActive;
 	private long _templateId;
 	private long _originalTemplateId;

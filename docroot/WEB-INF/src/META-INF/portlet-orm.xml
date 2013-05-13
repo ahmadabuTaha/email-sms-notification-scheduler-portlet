@@ -26,6 +26,8 @@
 			<basic name="scheduleType" />
 			<basic name="scheduleFlagValue" />
 			<basic name="scheduleOp" />
+			<basic name="schedulePeriod" />
+			<basic name="scheduleBeforAfter" />
 			<basic name="scheduleActive" />
 			<basic name="templateId" />
 			<transient name="modelAttributes" />

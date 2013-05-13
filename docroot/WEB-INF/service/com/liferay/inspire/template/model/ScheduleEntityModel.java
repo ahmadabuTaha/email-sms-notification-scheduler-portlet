@@ -147,6 +147,34 @@ public interface ScheduleEntityModel extends BaseModel<ScheduleEntity> {
 	public void setScheduleOp(String scheduleOp);
 
 	/**
+	 * Returns the schedule period of this schedule entity.
+	 *
+	 * @return the schedule period of this schedule entity
+	 */
+	public long getSchedulePeriod();
+
+	/**
+	 * Sets the schedule period of this schedule entity.
+	 *
+	 * @param schedulePeriod the schedule period of this schedule entity
+	 */
+	public void setSchedulePeriod(long schedulePeriod);
+
+	/**
+	 * Returns the schedule befor after of this schedule entity.
+	 *
+	 * @return the schedule befor after of this schedule entity
+	 */
+	public long getScheduleBeforAfter();
+
+	/**
+	 * Sets the schedule befor after of this schedule entity.
+	 *
+	 * @param scheduleBeforAfter the schedule befor after of this schedule entity
+	 */
+	public void setScheduleBeforAfter(long scheduleBeforAfter);
+
+	/**
 	 * Returns the schedule active of this schedule entity.
 	 *
 	 * @return the schedule active of this schedule entity

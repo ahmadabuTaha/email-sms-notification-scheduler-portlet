@@ -78,7 +78,7 @@ public class ResidenceExpireDateEmailSender extends EmailSenderBaseImpl {
 		}
 	}
 
-	@Override
+	//@Override
 	public List<User> getReciepentsLogic() {
 
 //		String sql = "SELECT u.userId userId, e.data_ data_, e.valueId valueId FROM user_ u, expandovalue e where e.classPK = u.userId and e.columnId = "

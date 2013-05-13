@@ -28,18 +28,8 @@ public class ScheduleManagerPortlet extends MVCPortlet {
 
 		long scheduleId = CounterLocalServiceUtil.increment(ScheduleEntity.class.getName());
 		ScheduleEntity sEntity = getScheduleFromRequest(request, scheduleId);
-
+		ScheduleEntityLocalServiceUtil.addScheduleEntity(sEntity);
 		
-		ModuleGenUtil moduleGenUtil = new ModuleGenUtil();
-		PortletSession session = request.getPortletSession();
-		PortletContext context = session.getPortletContext();
-	
-		String fullPath = context.getRealPath("WEB-INF/src/");
-		System.out.println(fullPath);
-		boolean status = moduleGenUtil.doCompilingModule(this.fullName, sEntity, fullPath);
-		if(status){
-			ScheduleEntityLocalServiceUtil.addScheduleEntity(sEntity);
-		}
 		sendRedirect(request, response);
 	}
 
@@ -71,6 +61,8 @@ public class ScheduleManagerPortlet extends MVCPortlet {
 		sEntity.setScheduleFlagValue(ParamUtil.getString(request, "scheduleFlagValue"));
 		sEntity.setScheduleOp(ParamUtil.getString(request, "scheduleOp"));
 		sEntity.setScheduleActive(ParamUtil.getBoolean(request, "scheduleActive"));
+		sEntity.setSchedulePeriod(ParamUtil.getLong(request, "schedulePeriod"));
+		sEntity.setScheduleBeforAfter(ParamUtil.getLong(request, "scheduleBeforAfter"));
 		sEntity.setTemplateId(ParamUtil.getLong(request, "templateId"));
 
 		return sEntity;
@@ -87,6 +79,8 @@ public class ScheduleManagerPortlet extends MVCPortlet {
 		sEntity.setScheduleFlagValue(ParamUtil.getString(request, "scheduleFlagValue"));
 		sEntity.setScheduleOp(ParamUtil.getString(request, "scheduleOp"));
 		sEntity.setScheduleActive(ParamUtil.getBoolean(request, "scheduleActive"));
+		sEntity.setSchedulePeriod(ParamUtil.getLong(request, "schedulePeriod"));
+		sEntity.setScheduleBeforAfter(ParamUtil.getLong(request, "scheduleBeforAfter"));
 		sEntity.setTemplateId(ParamUtil.getLong(request, "templateId"));
 
 		return sEntity;

@@ -23,6 +23,8 @@
 		<property name="scheduleType" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="scheduleFlagValue" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="scheduleOp" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="schedulePeriod" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="scheduleBeforAfter" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="scheduleActive" type="com.liferay.portal.dao.orm.hibernate.BooleanType" />
 		<property name="templateId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 	</class>

@@ -71,6 +71,8 @@ public class ScheduleEntityClp extends BaseModelImpl<ScheduleEntity>
 		attributes.put("scheduleType", getScheduleType());
 		attributes.put("scheduleFlagValue", getScheduleFlagValue());
 		attributes.put("scheduleOp", getScheduleOp());
+		attributes.put("schedulePeriod", getSchedulePeriod());
+		attributes.put("scheduleBeforAfter", getScheduleBeforAfter());
 		attributes.put("scheduleActive", getScheduleActive());
 		attributes.put("templateId", getTemplateId());
 
@@ -113,6 +115,18 @@ public class ScheduleEntityClp extends BaseModelImpl<ScheduleEntity>
 
 		if (scheduleOp != null) {
 			setScheduleOp(scheduleOp);
+		}
+
+		Long schedulePeriod = (Long)attributes.get("schedulePeriod");
+
+		if (schedulePeriod != null) {
+			setSchedulePeriod(schedulePeriod);
+		}
+
+		Long scheduleBeforAfter = (Long)attributes.get("scheduleBeforAfter");
+
+		if (scheduleBeforAfter != null) {
+			setScheduleBeforAfter(scheduleBeforAfter);
 		}
 
 		Boolean scheduleActive = (Boolean)attributes.get("scheduleActive");
@@ -176,6 +190,22 @@ public class ScheduleEntityClp extends BaseModelImpl<ScheduleEntity>
 		_scheduleOp = scheduleOp;
 	}
 
+	public long getSchedulePeriod() {
+		return _schedulePeriod;
+	}
+
+	public void setSchedulePeriod(long schedulePeriod) {
+		_schedulePeriod = schedulePeriod;
+	}
+
+	public long getScheduleBeforAfter() {
+		return _scheduleBeforAfter;
+	}
+
+	public void setScheduleBeforAfter(long scheduleBeforAfter) {
+		_scheduleBeforAfter = scheduleBeforAfter;
+	}
+
 	public boolean getScheduleActive() {
 		return _scheduleActive;
 	}
@@ -231,6 +261,8 @@ public class ScheduleEntityClp extends BaseModelImpl<ScheduleEntity>
 		clone.setScheduleType(getScheduleType());
 		clone.setScheduleFlagValue(getScheduleFlagValue());
 		clone.setScheduleOp(getScheduleOp());
+		clone.setSchedulePeriod(getSchedulePeriod());
+		clone.setScheduleBeforAfter(getScheduleBeforAfter());
 		clone.setScheduleActive(getScheduleActive());
 		clone.setTemplateId(getTemplateId());
 
@@ -283,7 +315,7 @@ public class ScheduleEntityClp extends BaseModelImpl<ScheduleEntity>
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(17);
+		StringBundler sb = new StringBundler(21);
 
 		sb.append("{scheduleId=");
 		sb.append(getScheduleId());
@@ -297,6 +329,10 @@ public class ScheduleEntityClp extends BaseModelImpl<ScheduleEntity>
 		sb.append(getScheduleFlagValue());
 		sb.append(", scheduleOp=");
 		sb.append(getScheduleOp());
+		sb.append(", schedulePeriod=");
+		sb.append(getSchedulePeriod());
+		sb.append(", scheduleBeforAfter=");
+		sb.append(getScheduleBeforAfter());
 		sb.append(", scheduleActive=");
 		sb.append(getScheduleActive());
 		sb.append(", templateId=");
@@ -307,7 +343,7 @@ public class ScheduleEntityClp extends BaseModelImpl<ScheduleEntity>
 	}
 
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(28);
+		StringBundler sb = new StringBundler(34);
 
 		sb.append("<model><model-name>");
 		sb.append("com.liferay.inspire.template.model.ScheduleEntity");
@@ -338,6 +374,14 @@ public class ScheduleEntityClp extends BaseModelImpl<ScheduleEntity>
 		sb.append(getScheduleOp());
 		sb.append("]]></column-value></column>");
 		sb.append(
+			"<column><column-name>schedulePeriod</column-name><column-value><![CDATA[");
+		sb.append(getSchedulePeriod());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>scheduleBeforAfter</column-name><column-value><![CDATA[");
+		sb.append(getScheduleBeforAfter());
+		sb.append("]]></column-value></column>");
+		sb.append(
 			"<column><column-name>scheduleActive</column-name><column-value><![CDATA[");
 		sb.append(getScheduleActive());
 		sb.append("]]></column-value></column>");
@@ -357,6 +401,8 @@ public class ScheduleEntityClp extends BaseModelImpl<ScheduleEntity>
 	private String _scheduleType;
 	private String _scheduleFlagValue;
 	private String _scheduleOp;
+	private long _schedulePeriod;
+	private long _scheduleBeforAfter;
 	private boolean _scheduleActive;
 	private long _templateId;
 	private BaseModel<?> _scheduleEntityRemoteModel;

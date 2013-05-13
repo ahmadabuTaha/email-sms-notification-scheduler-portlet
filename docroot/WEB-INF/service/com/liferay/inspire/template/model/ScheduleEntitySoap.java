@@ -35,6 +35,8 @@ public class ScheduleEntitySoap implements Serializable {
 		soapModel.setScheduleType(model.getScheduleType());
 		soapModel.setScheduleFlagValue(model.getScheduleFlagValue());
 		soapModel.setScheduleOp(model.getScheduleOp());
+		soapModel.setSchedulePeriod(model.getSchedulePeriod());
+		soapModel.setScheduleBeforAfter(model.getScheduleBeforAfter());
 		soapModel.setScheduleActive(model.getScheduleActive());
 		soapModel.setTemplateId(model.getTemplateId());
 
@@ -137,6 +139,22 @@ public class ScheduleEntitySoap implements Serializable {
 		_scheduleOp = scheduleOp;
 	}
 
+	public long getSchedulePeriod() {
+		return _schedulePeriod;
+	}
+
+	public void setSchedulePeriod(long schedulePeriod) {
+		_schedulePeriod = schedulePeriod;
+	}
+
+	public long getScheduleBeforAfter() {
+		return _scheduleBeforAfter;
+	}
+
+	public void setScheduleBeforAfter(long scheduleBeforAfter) {
+		_scheduleBeforAfter = scheduleBeforAfter;
+	}
+
 	public boolean getScheduleActive() {
 		return _scheduleActive;
 	}
@@ -163,6 +181,8 @@ public class ScheduleEntitySoap implements Serializable {
 	private String _scheduleType;
 	private String _scheduleFlagValue;
 	private String _scheduleOp;
+	private long _schedulePeriod;
+	private long _scheduleBeforAfter;
 	private boolean _scheduleActive;
 	private long _templateId;
 }

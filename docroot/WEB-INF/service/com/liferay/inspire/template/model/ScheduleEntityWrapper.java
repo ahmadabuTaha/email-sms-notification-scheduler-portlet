@@ -51,6 +51,8 @@ public class ScheduleEntityWrapper implements ScheduleEntity,
 		attributes.put("scheduleType", getScheduleType());
 		attributes.put("scheduleFlagValue", getScheduleFlagValue());
 		attributes.put("scheduleOp", getScheduleOp());
+		attributes.put("schedulePeriod", getSchedulePeriod());
+		attributes.put("scheduleBeforAfter", getScheduleBeforAfter());
 		attributes.put("scheduleActive", getScheduleActive());
 		attributes.put("templateId", getTemplateId());
 
@@ -92,6 +94,18 @@ public class ScheduleEntityWrapper implements ScheduleEntity,
 
 		if (scheduleOp != null) {
 			setScheduleOp(scheduleOp);
+		}
+
+		Long schedulePeriod = (Long)attributes.get("schedulePeriod");
+
+		if (schedulePeriod != null) {
+			setSchedulePeriod(schedulePeriod);
+		}
+
+		Long scheduleBeforAfter = (Long)attributes.get("scheduleBeforAfter");
+
+		if (scheduleBeforAfter != null) {
+			setScheduleBeforAfter(scheduleBeforAfter);
 		}
 
 		Boolean scheduleActive = (Boolean)attributes.get("scheduleActive");
@@ -231,6 +245,42 @@ public class ScheduleEntityWrapper implements ScheduleEntity,
 	*/
 	public void setScheduleOp(java.lang.String scheduleOp) {
 		_scheduleEntity.setScheduleOp(scheduleOp);
+	}
+
+	/**
+	* Returns the schedule period of this schedule entity.
+	*
+	* @return the schedule period of this schedule entity
+	*/
+	public long getSchedulePeriod() {
+		return _scheduleEntity.getSchedulePeriod();
+	}
+
+	/**
+	* Sets the schedule period of this schedule entity.
+	*
+	* @param schedulePeriod the schedule period of this schedule entity
+	*/
+	public void setSchedulePeriod(long schedulePeriod) {
+		_scheduleEntity.setSchedulePeriod(schedulePeriod);
+	}
+
+	/**
+	* Returns the schedule befor after of this schedule entity.
+	*
+	* @return the schedule befor after of this schedule entity
+	*/
+	public long getScheduleBeforAfter() {
+		return _scheduleEntity.getScheduleBeforAfter();
+	}
+
+	/**
+	* Sets the schedule befor after of this schedule entity.
+	*
+	* @param scheduleBeforAfter the schedule befor after of this schedule entity
+	*/
+	public void setScheduleBeforAfter(long scheduleBeforAfter) {
+		_scheduleEntity.setScheduleBeforAfter(scheduleBeforAfter);
 	}
 
 	/**

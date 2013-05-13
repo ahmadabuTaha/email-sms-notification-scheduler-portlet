@@ -360,6 +360,8 @@ public class ScheduleEntityPersistenceImpl extends BasePersistenceImpl<ScheduleE
 		scheduleEntityImpl.setScheduleType(scheduleEntity.getScheduleType());
 		scheduleEntityImpl.setScheduleFlagValue(scheduleEntity.getScheduleFlagValue());
 		scheduleEntityImpl.setScheduleOp(scheduleEntity.getScheduleOp());
+		scheduleEntityImpl.setSchedulePeriod(scheduleEntity.getSchedulePeriod());
+		scheduleEntityImpl.setScheduleBeforAfter(scheduleEntity.getScheduleBeforAfter());
 		scheduleEntityImpl.setScheduleActive(scheduleEntity.isScheduleActive());
 		scheduleEntityImpl.setTemplateId(scheduleEntity.getTemplateId());
 

@@ -14,6 +14,8 @@
 		<field name="scheduleType" type="String" />
 		<field name="scheduleFlagValue" type="String" />
 		<field name="scheduleOp" type="String" />
+		<field name="schedulePeriod" type="long" />
+		<field name="scheduleBeforAfter" type="long" />
 		<field name="scheduleActive" type="boolean" />
 		<field name="templateId" type="long" />
 	</model>

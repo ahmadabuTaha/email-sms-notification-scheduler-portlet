@@ -19,6 +19,8 @@ create table EmailTemplates_ScheduleEntity (
 	scheduleType VARCHAR(75) null,
 	scheduleFlagValue VARCHAR(75) null,
 	scheduleOp VARCHAR(75) null,
+	schedulePeriod LONG,
+	scheduleBeforAfter LONG,
 	scheduleActive BOOLEAN,
 	templateId LONG
 );
