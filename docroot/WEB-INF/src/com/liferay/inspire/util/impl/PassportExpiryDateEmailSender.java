@@ -71,10 +71,13 @@ public class PassportExpiryDateEmailSender extends EmailSenderBaseImpl{
 					MailServiceUtil.sendEmail(mail);
 				}
 
-			} catch (PortalException | SystemException e) {
+			} catch (SystemException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (AddressException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (PortalException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
@@ -98,13 +101,14 @@ public class PassportExpiryDateEmailSender extends EmailSenderBaseImpl{
 			ResultSet rs = stmnt.executeQuery(sql);
 			while(rs.next()){
 				String dstr = rs.getString("data_");
+				
 				long datel = Long.valueOf(dstr);
 				Date date = new Date(datel);
 				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 				String expdateStr = sdf.format(date);
-				//System.out.println(expdateStr);
+				System.out.println("=====Custom field variable is : "+expdateStr);
 				String afterBeforeFlag = ConfigUtil.LR_CUSTOM_FIELD_CHECK_BEFOREAFTER;
-				//System.out.println(afterBeforeFlag);
+			
 				if(validateExpiryDate(afterBeforeFlag, expdateStr)){
 					//System.out.println("you are before flag");
 					long userId = rs.getLong("userId");
@@ -146,9 +150,10 @@ public class PassportExpiryDateEmailSender extends EmailSenderBaseImpl{
 		
 		int year = Integer.parseInt(expdateStr.split("-")[0]);
 		int month = Integer.parseInt(expdateStr.split("-")[1]);
+		System.out.println(expdateStr);
 		expdate.set(expdate.YEAR, year);
 		expdate.set(expdate.MONTH, month-1);
-		//System.out.println("The Expired date defined as "+sdf.format(expdate.getTime()));
+		
 		valid = current.before(expdate);
 		return valid;
 	}
@@ -170,7 +175,8 @@ public class PassportExpiryDateEmailSender extends EmailSenderBaseImpl{
 		int month = Integer.parseInt(expdateStr.split("-")[1]);
 		expdate.set(expdate.YEAR, year);
 		expdate.set(expdate.MONTH, month-1);
-
+		
+		
 		valid = current.after(expdate);
 		return valid;
 	}

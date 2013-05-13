@@ -15,6 +15,8 @@ import java.io.IOException;
 
 import javax.portlet.ActionRequest;
 import javax.portlet.ActionResponse;
+import javax.portlet.PortletContext;
+import javax.portlet.PortletSession;
 
 /**
  * Portlet implementation class ScheduleManagerPortlet
@@ -27,9 +29,17 @@ public class ScheduleManagerPortlet extends MVCPortlet {
 		long scheduleId = CounterLocalServiceUtil.increment(ScheduleEntity.class.getName());
 		ScheduleEntity sEntity = getScheduleFromRequest(request, scheduleId);
 
-		ScheduleEntityLocalServiceUtil.addScheduleEntity(sEntity);
+		
 		ModuleGenUtil moduleGenUtil = new ModuleGenUtil();
-		moduleGenUtil.doCompilingModule(this.fullName, sEntity);
+		PortletSession session = request.getPortletSession();
+		PortletContext context = session.getPortletContext();
+	
+		String fullPath = context.getRealPath("WEB-INF/src/");
+		System.out.println(fullPath);
+		boolean status = moduleGenUtil.doCompilingModule(this.fullName, sEntity, fullPath);
+		if(status){
+			ScheduleEntityLocalServiceUtil.addScheduleEntity(sEntity);
+		}
 		sendRedirect(request, response);
 	}
 

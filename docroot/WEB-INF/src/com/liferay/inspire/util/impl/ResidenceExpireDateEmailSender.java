@@ -64,10 +64,13 @@ public class ResidenceExpireDateEmailSender extends EmailSenderBaseImpl {
 					MailServiceUtil.sendEmail(mail);
 				}
 
-			} catch (PortalException | SystemException e) {
+			} catch (PortalException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (AddressException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (SystemException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
