@@ -119,8 +119,8 @@ public class HappyBirthdayBuilder implements EmailBuilder{
 
 	private String getBirthdayTemplate() {
 		String sql = "select * from emailTemplates_emailTemplateEntity sch where" +
-				" sch.templateName = 'Happy Birthday' ";
-		String template = "";
+				" sch.templateSubject = 'Happy Birthday' ";
+		String template = "0";
 		try {
 			Statement stmnt = EmailBuilderInitializer.getConnection().createStatement();
 			ResultSet rs = stmnt.executeQuery(sql);

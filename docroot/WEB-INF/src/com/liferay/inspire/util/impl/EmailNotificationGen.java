@@ -44,87 +44,98 @@ public class EmailNotificationGen extends EmailSenderBaseImpl{
 			System.out.println(sch.getScheduleType());
 			if(sch.getScheduleType().equals("Yearly Event")){
 
-				EmailElements emailelements = new EmailElements();	
-				EmailBuilder mailBuilder = new YearlyEventEmailBuilder();
-
-
-				EmailBuilderEngine mailBuilderEngine = new EmailBuilderEngine(mailBuilder, sch.getScheduleId());
-				mailBuilderEngine.buildEmailMessage();
-
-				emailelements = mailBuilderEngine.getEmailBuilder().getEmailElements();
-
-				MailMessage mailMessage = emailelements.getMailMessage();
-				List<User> users = emailelements.getRecipents();
-				System.out.println("====== Mail Name : "+sch.getScheduleName()+"\n," +
-						"Count of Reciepents :"+users.size()+"\n" +
-						"Sending Date : "+new Date()+"\n" +
-						"Mail Id : "+sch.getTemplateId()+", Sechd Id :"+sch.getScheduleId());
-				for(User user : users){
-					try {
-
-						String to = user.getEmailAddress();
-						if(to != null){
-							
-							Contact c = user.getContact();
-							InternetAddress toReciever = new InternetAddress(to);
-							mailMessage.setTo(toReciever);
-							MailServiceUtil.sendEmail(mailMessage);
-						}
-
-					} catch (PortalException | SystemException e) {
-
-						e.printStackTrace();
-					} catch (AddressException e) {
-
-						e.printStackTrace();
-					}
-					
-				}
+				sendYearlyEventEmail(sch);
 			}
 			else if(sch.getScheduleType().equals("Date")){
-
-				EmailElements emailelements = new EmailElements();	
-				EmailBuilder mailBuilder = new DateEventEmailBuilder();
-
-
-				EmailBuilderEngine mailBuilderEngine = new EmailBuilderEngine(mailBuilder, sch.getScheduleId());
-				mailBuilderEngine.buildEmailMessage();
-
-				emailelements = mailBuilderEngine.getEmailBuilder().getEmailElements();
-
-				MailMessage mailMessage = emailelements.getMailMessage();
-				List<User> users = emailelements.getRecipents();
-				System.out.println("====== Mail Name : "+sch.getScheduleName()+"\n," +
-						"Count of Reciepents :"+users.size()+"\n" +
-						"Sending Date : "+new Date()+"\n" +
-						"Mail Id : "+sch.getTemplateId()+", Sechd Id :"+sch.getScheduleId());
-				for(User user : users){
-					try {
-
-						String to = user.getEmailAddress();
-						if(to != null){
-							Contact c = user.getContact();
-							InternetAddress toReciever = new InternetAddress(to);
-							mailMessage.setTo(toReciever);
-							MailServiceUtil.sendEmail(mailMessage);
-						}
-
-					} catch (PortalException | SystemException e) {
-
-						e.printStackTrace();
-					} catch (AddressException e) {
-
-						e.printStackTrace();
-					} 
-
-				}
-			}
+				sendDateEvent(sch);
+			}		
 			else{
 				//custom field impl
 			}
 		}
 
 
+	}
+
+
+	private void sendDateEvent(ScheduleEntity sch) {
+		EmailElements emailelements = new EmailElements();	
+		EmailBuilder mailBuilder = new DateEventEmailBuilder();
+
+
+		EmailBuilderEngine mailBuilderEngine = new EmailBuilderEngine(mailBuilder, sch.getScheduleId());
+		mailBuilderEngine.buildEmailMessage();
+
+		emailelements = mailBuilderEngine.getEmailBuilder().getEmailElements();
+
+		MailMessage mailMessage = emailelements.getMailMessage();
+		List<User> users = emailelements.getRecipents();
+		System.out.println("====== Mail Name : "+sch.getScheduleName()+"\n," +
+				"Count of Reciepents :"+users.size()+"\n" +
+				"Sending Date : "+new Date()+"\n" +
+				"Mail Id : "+sch.getTemplateId()+", Sechd Id :"+sch.getScheduleId());
+		for(User user : users){
+			try {
+
+				String to = user.getEmailAddress();
+				if(to != null){
+					Contact c = user.getContact();
+					InternetAddress toReciever = new InternetAddress(to);
+					mailMessage.setTo(toReciever);
+					MailServiceUtil.sendEmail(mailMessage);
+				}
+
+			} catch (PortalException | SystemException e) {
+
+				e.printStackTrace();
+			} catch (AddressException e) {
+
+				e.printStackTrace();
+			} 
+
+		}
+		
+	}
+
+
+	private void sendYearlyEventEmail(ScheduleEntity sch) {
+		EmailElements emailelements = new EmailElements();	
+		EmailBuilder mailBuilder = new YearlyEventEmailBuilder();
+
+
+		EmailBuilderEngine mailBuilderEngine = new EmailBuilderEngine(mailBuilder, sch.getScheduleId());
+		mailBuilderEngine.buildEmailMessage();
+
+		emailelements = mailBuilderEngine.getEmailBuilder().getEmailElements();
+
+		MailMessage mailMessage = emailelements.getMailMessage();
+		List<User> users = emailelements.getRecipents();
+		System.out.println("====== Mail Name : "+sch.getScheduleName()+"\n," +
+				"Count of Reciepents :"+users.size()+"\n" +
+				"Sending Date : "+new Date()+"\n" +
+				"Mail Id : "+sch.getTemplateId()+", Sechd Id :"+sch.getScheduleId());
+		for(User user : users){
+			try {
+
+				String to = user.getEmailAddress();
+				if(to != null){
+					
+					Contact c = user.getContact();
+					InternetAddress toReciever = new InternetAddress(to);
+					mailMessage.setTo(toReciever);
+					MailServiceUtil.sendEmail(mailMessage);
+				}
+
+			} catch (PortalException | SystemException e) {
+
+				e.printStackTrace();
+			} catch (AddressException e) {
+
+				e.printStackTrace();
+			}
+			
+		}
+		
 	}
 
 
@@ -137,7 +148,9 @@ public class EmailNotificationGen extends EmailSenderBaseImpl{
 		
 		
 		List<User> recps = elements.getRecipents();
-		
+		System.out.println("====== Mail Name : HappyBirthday Mail"+"\n," +
+				"Count of Reciepents :"+recps.size()+"\n" +
+				"Sending Date : "+new Date()+"\n");
 		for(User user : recps){
 			String emailAddress = user.getEmailAddress();
 			if(emailAddress != null){

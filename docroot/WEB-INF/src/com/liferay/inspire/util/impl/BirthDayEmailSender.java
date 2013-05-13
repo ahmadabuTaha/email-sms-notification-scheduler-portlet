@@ -84,6 +84,7 @@ public class BirthDayEmailSender extends EmailSenderBaseImpl{
 	public List<User> getReciepentsLogic(){
 		List<User> users = new ArrayList<User>();
 
+
 		try {
 
 			String sql = "select"+"\n"+
