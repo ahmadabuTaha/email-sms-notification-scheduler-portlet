@@ -41,6 +41,7 @@
 		<column name="scheduleType" type="String"></column>
 		<column name="scheduleFlagValue" type="String"></column>
 		<column name="scheduleOp" type="String"></column>
+		<column name="schedulePeriod" type="long"></column>
 		<column name="scheduleActive" type="boolean" />
 		<column name="templateId" type="long"></column>
 		

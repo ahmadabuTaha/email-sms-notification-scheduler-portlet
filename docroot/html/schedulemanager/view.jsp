@@ -49,11 +49,21 @@
 			name="template-Operator"
 			property="scheduleOp"
 		/>
+		
+		<liferay-ui:search-container-column-text
+			name="template-period"
+			property="schedulePeriod"
+		/>
+		
 		<liferay-ui:search-container-column-text
 			name="template-active"
 			property="scheduleActive"
 		/>
-
+		
+		<liferay-ui:search-container-column-text
+			name="template-BeforeAfter"
+			property="scheduleBeforAfter"
+		/>
 		<liferay-ui:search-container-column-jsp
 			align="right"
 			path="/html/schedulemanager/schedule_actions.jsp"

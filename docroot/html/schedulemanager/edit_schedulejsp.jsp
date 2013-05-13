@@ -32,13 +32,25 @@
 
 		<aui:input name="scheduleName" />
 
-		<aui:input name="scheduleStore" disabled='<%= sEntity==null? Boolean.valueOf(false): Boolean.valueOf(true) %>'/>
+		<aui:input type="hidden" name="scheduleStore" disabled='<%= sEntity==null? Boolean.valueOf(false): Boolean.valueOf(true) %>'/>
 		
-		<aui:input name="scheduleType" />
+		<aui:select name="scheduleType" showEmptyOption="false" label="Schedule Type">
+			<aui:option value="0"><%= HtmlUtil.escape("Choose one") %></aui:option>
+			<aui:option value="Yearly Event"><%= HtmlUtil.escape("Yearly Event") %></aui:option>
+			<aui:option value="Date"><%= HtmlUtil.escape("Date") %></aui:option>
+			<aui:option value="Custom Field"><%= HtmlUtil.escape("Custom Field") %></aui:option>
+		</aui:select>
 		
 		<aui:input name="scheduleFlagValue" />
 		
-		<aui:input name="scheduleOp" />
+		<aui:input name="schedulePeriod"></aui:input>
+		
+		<aui:select name="scheduleBeforAfter">
+			<aui:option value="0"><%= HtmlUtil.escape("Choose one") %></aui:option>
+			<aui:option value="1"><%= HtmlUtil.escape("On Time") %></aui:option>
+			<aui:option value="2"><%= HtmlUtil.escape("Before") %></aui:option>
+			<aui:option value="3"><%= HtmlUtil.escape("After") %></aui:option>
+		</aui:select>
 		
 		<aui:select name="scheduleActive" showEmptyOption="<%=false %>" label="Active">
 			<aui:option value="0"><%= HtmlUtil.escape("Choose one") %></aui:option>

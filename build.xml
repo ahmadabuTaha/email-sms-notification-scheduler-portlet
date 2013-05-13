@@ -3,4 +3,5 @@
 
 <project name="email-sms-notification-scheduler-portlet" basedir="." default="deploy">
 	<import file="../build-common-portlet.xml" />
+	
 </project>
