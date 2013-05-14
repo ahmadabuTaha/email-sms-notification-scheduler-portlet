@@ -5,7 +5,7 @@ import com.liferay.inspire.template.model.ScheduleEntity;
 import com.liferay.inspire.template.model.impl.ScheduleEntityImpl;
 import com.liferay.inspire.template.service.EmailTemplateEntityLocalServiceUtil;
 import com.liferay.inspire.template.service.ScheduleEntityLocalServiceUtil;
-import com.liferay.inspire.util.codegen.ModuleGenUtil;
+
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.util.ParamUtil;
